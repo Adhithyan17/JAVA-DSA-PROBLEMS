@@ -21,43 +21,34 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
  */
-public class longestsubstringlength{
+public class longestsubstringlength {
     public static void main(String[] args) {
-          String s1="abcabcbb";
-          String s2="bbbbb";
-          String s3="pwwkew";
+        String s1 = "abcabcbb";
+        String s2 = "bbbbb";
+        String s3 = "pwwkew";
 
-System.out.println("s1:"+Findlongestsubstring(s1));
-System.out.println("s2:"+Findlongestsubstring(s2));
-System.out.println("s3:"+Findlongestsubstring(s3));
-
-
+        System.out.println("s1:" + Findlongestsubstring(s1));
+        System.out.println("s2:" + Findlongestsubstring(s2));
+        System.out.println("s3:" + Findlongestsubstring(s3));
 
     }
 
-    public static int  Findlongestsubstring(String s){
-Map<Character,Integer>m=new HashMap<>();
-   int max=0;
-   int left=0;
-for(int i=0;i<s.length();i++){
-  
-  char c=s.charAt(i);
-    if (m.containsKey(c)){
-        left=Math.max(max,m.get(c)+1);
-    }
-     m.put(c, i);
-   
-    
-    max=Math.max(max,i-left+1);
+    public static int Findlongestsubstring(String s) {
+        Map<Character, Integer> m = new HashMap<>();
+        int max = 0;
+        int left = 0;
+        for (int i = 0; i < s.length(); i++) {
 
-}
+            char c = s.charAt(i);
+            if (m.containsKey(c)) {
+                left = Math.max(max, m.get(c) + 1);
+            }
+            m.put(c, i);
 
+            max = Math.max(max, i - left + 1);
 
+        }
 
-
-
-
-
-return max;
+        return max;
     }
 }
